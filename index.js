@@ -1,7 +1,10 @@
 require('dotenv').config()
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const express = require('express');
+const bodyParser = require('body-parser')
 const app = express();
+
+app.use(bodyParser.json())
 
 const sequelize = new Sequelize(process.env.DATABASE_URL);
 
@@ -35,8 +38,6 @@ Blog.init({
 
 Blog.sync()
 
-app.use(express.json)
-
 /* Endpoints */
 app.get('/', (_req, res) => {
   res.send('Blog API is running');
@@ -49,7 +50,7 @@ app.get('/api/blogs', async (_req, res) => {
 
 app.post('/api/blogs', async (req, res) => {
   try {
-    console.log(req.body)
+    console.log(req)
     const note = await Blog.create(req.body)
     return res.json(note)
   } catch (error) {
@@ -58,14 +59,15 @@ app.post('/api/blogs', async (req, res) => {
 })
 
 app.delete('/api/blogs/:id', async (req, res) => {
-  const blog = await Blog.findOne(req.params.id)
+  console.log(req.params.id)
+  const blog = await Blog.findByPk(req.params.id)
   if(blog) {
-    try {
-      await blog.destroy()
-      res.send.status(204).end()
-    } catch (error) {
-      res.status(400).json({error})
-    }
+      try {
+        await blog.destroy()
+        res.status(204).end()
+      } catch (error) {
+        res.status(400).json({error})
+      }
   } else {
     res.status(404).end()
   }
