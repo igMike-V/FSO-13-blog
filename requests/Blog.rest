@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+
+{
+  "author": "Dan Abramov",
+  "url": "https://overreacted.io/npm-audit-broken-by-design",
+  "title": "npm audit: Broken by Design"
+}
