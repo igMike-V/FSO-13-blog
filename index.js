@@ -8,6 +8,7 @@ const { PORT } = require('./utils/config')
 const { connectToDatabase } = require('./utils/db')
 
 const blogsRouter = require('./controllers/blogs')
+const userRouter = require('./controllers/users')
 
 app.use(bodyParser.json())
 
@@ -18,6 +19,7 @@ app.get('/', (_req, res) => {
 })
 
 app.use('/api/blogs', blogsRouter)
+app.use('/api/users', userRouter)
 
 const start = async () => {
   await connectToDatabase()
