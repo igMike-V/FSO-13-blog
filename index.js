@@ -1,5 +1,6 @@
 const express = require('express')
 require('express-async-errors');
+const errorHandler = require('./middleware/errorHandler')
 const app = express()
 
 const bodyParser = require('body-parser')
@@ -20,6 +21,10 @@ app.get('/', (_req, res) => {
 
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', userRouter)
+
+/* Error handling */
+
+app.use(errorHandler)
 
 const start = async () => {
   await connectToDatabase()

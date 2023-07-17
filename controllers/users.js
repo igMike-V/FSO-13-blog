@@ -9,16 +9,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   console.log('requestbody: ', req.body)
-  try{
-    const { password } = req.body
+  const { password } = req.body
 
-    const saltRounds = 10
-    const passwordHash = await bcrypt.hash(password, saltRounds)
-    const user = await User.create({...req.body, password: passwordHash})
-    res.json(user)
-  } catch(error) {
-    return res.status(400).json({error})
-  }
+  const saltRounds = 10
+  const passwordHash = await bcrypt.hash(password, saltRounds)
+  const user = await User.create({...req.body, password: passwordHash})
+  res.json(user)
 })
 
 router.get('/:id', async (req, res) => {
