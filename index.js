@@ -10,6 +10,7 @@ const { connectToDatabase } = require('./utils/db')
 
 const blogsRouter = require('./controllers/blogs')
 const userRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
 
 app.use(bodyParser.json())
 
@@ -21,6 +22,7 @@ app.get('/', (_req, res) => {
 
 app.use('/api/blogs', blogsRouter)
 app.use('/api/users', userRouter)
+app.use('/api/login', loginRouter)
 
 /* Error handling */
 

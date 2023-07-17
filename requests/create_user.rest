@@ -3,12 +3,12 @@ Content-Type: application/json
 
 {
   "name": "Mike Vautour",
-  "username": "mvautour",
+  "username": "mike@mike.com",
   "password": "password"
 }
 
 ### Delete record
-DELETE http://localhost:3001/api/users/1
+DELETE http://localhost:3001/api/users/3
 
 ### Edit record
 PUT http://localhost:3001/api/users/matti

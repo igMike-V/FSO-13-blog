@@ -27,6 +27,7 @@ router.get('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
+  /* this route needs auth to use. */
   const user = await User.findByPk(req.params.id)
   if (user) {
     await user.destroy()
@@ -49,7 +50,7 @@ router.put('/:username', async (req, res) => {
     await user.save()
     res.json(user)
   } else {
-    res.status(401).end()
+    res.status(404).end()
   }
 })
 
