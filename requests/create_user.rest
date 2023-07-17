@@ -11,9 +11,9 @@ Content-Type: application/json
 DELETE http://localhost:3001/api/users/1
 
 ### Edit record
-PUT http://localhost:3001/api/users/mike
+PUT http://localhost:3001/api/users/matti
 Content-Type: application/json
 
 {
-  "username": "matti"
+  "username": "matti@go.com"
 }
