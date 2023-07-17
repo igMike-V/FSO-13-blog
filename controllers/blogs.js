@@ -46,10 +46,16 @@ router.post('/', tokenExtractor, async (req, res) => {
   
 })
 
-router.delete('/:id', blogFinder, async (req, res) => {
-  if(req.blog) {
-        await req.blog.destroy()
-        res.status(204).end()
+router.delete('/:id', blogFinder, tokenExtractor, async (req, res) => {
+  if(req.blog && req.decodedToken) {
+    /* Check if user matches */
+    if(req.decodedToken.id === req.blog.userId){
+      await req.blog.destroy()
+      res.status(204).end()
+    } else {
+      res.status(401).status.json({error: 'user did not create blog'})
+    }
+        
   } else {
     res.status(404).end()
   }
