@@ -15,9 +15,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa
 
 
 ### PUT
-PUT http://localhost:3001/api/blogs/8
+PUT http://localhost:3001/api/blogs/3
 Content-Type: application/json
 
 {
-  "likes": 1
+  "likes": 15
 }
