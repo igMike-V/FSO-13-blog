@@ -1,17 +1,17 @@
 ### POST
 POST http://localhost:3001/api/blogs
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6NCwiaWF0IjoxNjg5NjA1MzgwfQ.ON4C1IZrlg2a_8BgA2QmMALI-NYApCRt0YnMa4XzjGw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6MSwiaWF0IjoxNjg5ODY0MTI2fQ.7A-MdZEYmQ7AFifc3wgXNb0pJNIElX6uCN6Z3gBwhqY
 Content-Type: application/json
 
 {
-  "author": "Someone",
+  "author": "Pete Degal",
   "url": "https://overreacted.io/npm-audit-broken-by-design",
-  "title": "This is the title"
+  "title": "Title of the blog"
 }
 
 ### DELETE
 DELETE http://localhost:3001/api/blogs/7
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6NCwiaWF0IjoxNjg5NjA1MzgwfQ.ON4C1IZrlg2a_8BgA2QmMALI-NYApCRt0YnMa4XzjGw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6MSwiaWF0IjoxNjg5ODY0MTI2fQ.7A-MdZEYmQ7AFifc3wgXNb0pJNIElX6uCN6Z3gBwhqY
 
 
 ### PUT
