@@ -6,7 +6,8 @@ Content-Type: application/json
 {
   "author": "Pete Degal",
   "url": "https://overreacted.io/npm-audit-broken-by-design",
-  "title": "Title of the blog"
+  "title": "Title of the blog",
+  "year": 2001
 }
 
 ### DELETE
