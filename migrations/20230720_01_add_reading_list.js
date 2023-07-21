@@ -10,7 +10,7 @@ module.exports = {
       },
       read: {
         type: DataTypes.BOOLEAN,
-        defaulValue: false,
+        defaultValue: false,
       },
       user_id: {
         type: DataTypes.INTEGER,

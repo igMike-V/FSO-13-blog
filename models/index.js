@@ -10,5 +10,5 @@ Blog.belongsToMany(User, { through: Readinglist })
 
 
 module.exports = {
-  Blog, User
+  Blog, User, Readinglist
 }
