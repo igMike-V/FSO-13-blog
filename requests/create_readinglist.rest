@@ -5,5 +5,5 @@ Content-Type: application/json
 
 {
   "blogId": 5,
-  "userId": 1
+  "userId": 2
 }
