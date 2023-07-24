@@ -2,9 +2,10 @@ const bcrypt = require('bcrypt')
 const router = require('express').Router()
 const { User, Blog, Readinglist } = require('../models')
 
-const { Op } = require('sequelize')
+const tokenExtractor = require('../middleware/tokenExtractor')
+const sessionValidator = require('../middleware/sessionValidator')
 
-router.get('/', async (req, res) => {
+router.get('/', async (_req, res) => {
   const users = await User.findAll({
     include: {
       model: Blog,
@@ -24,7 +25,7 @@ router.post('/', async (req, res) => {
   res.json(user)
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', tokenExtractor, sessionValidator, async (req, res) => {
   const where = {}
   if (req.query.read) {
     console.log('req.query.read: ', req.query.read)
@@ -73,7 +74,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',tokenExtractor, sessionValidator, async (req, res) => {
   /* this route needs auth to use. */
   const user = await User.findByPk(req.params.id)
   if (user) {

@@ -1,9 +1,11 @@
 const router = require('express').Router()
 
+const sessionValidator = require('../middleware/sessionValidator')
 const tokenExtractor = require('../middleware/tokenExtractor')
+
 const {Readinglist, User} = require('../models')
 
-router.post('/', tokenExtractor, async (req, res) => {
+router.post('/', tokenExtractor, sessionValidator, async (req, res) => {
   try {
     const loggedInUser = await User.findByPk(req.decodedToken.id)
     if(!loggedInUser){
@@ -16,7 +18,7 @@ router.post('/', tokenExtractor, async (req, res) => {
   }
 })
 
-router.put('/:id', tokenExtractor, async (req, res) => {
+router.put('/:id', tokenExtractor, sessionValidator, async (req, res) => {
   try {
     const loggedInUser = await User.findByPk(req.decodedToken.id)
     if(!loggedInUser){

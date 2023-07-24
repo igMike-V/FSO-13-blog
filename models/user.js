@@ -21,6 +21,11 @@ User.init({
       isEmail: true,
     }
   },
+  disabled: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  },
   password: {
     type: DataTypes.STRING,
     allowNull: false
@@ -29,7 +34,12 @@ User.init({
   sequelize,
   underscored: true,
   timestamps: true,
-  modelName: 'user'
+  modelName: 'user',
+  defaultScope: {
+    where: {
+      disabled: false
+    }
+  }
 })
 
 module.exports = User
