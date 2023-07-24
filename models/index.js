@@ -5,10 +5,10 @@ const Readinglist = require('./readinglist')
 User.hasMany(Blog)
 Blog.belongsTo(User)
 
-User.belongsToMany(Blog, { through: Readinglist, foreignKey: 'userId' })
-Blog.belongsToMany(User, { through: Readinglist, foreignKey: 'blogId' })
-
-
+User.hasMany(Readinglist, { as: 'readings' })
+Readinglist.belongsTo(User)
+Blog.hasMany(Readinglist)
+Readinglist.belongsTo(Blog)
 module.exports = {
   Blog, User, Readinglist
 }

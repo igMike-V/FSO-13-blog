@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const router = require('express').Router()
-const { User, Blog } = require('../models')
+const { User, Blog, Readinglist } = require('../models')
 
 router.get('/', async (req, res) => {
   const users = await User.findAll({
@@ -27,14 +27,37 @@ router.get('/:id', async (req, res) => {
     attributes: {exclude: ['password', 'createdAt', 'updatedAt', 'id']},
     include: [
       {
-        model: Blog,
-        through: {attributes: []},
-        attributes: {exclude: ['createdAt', 'updatedAt', 'userId']}
-      },
+        model: Readinglist,
+        attributes: {exclude: ['userId', 'blogId']},
+        as: 'readings',
+        include: [
+          {
+          model: Blog,
+          attributes: {exclude: ['userId', 'createdAt', 'updatedAt']}
+          }
+        ]
+      }
     ],
   })
   if (user) {
-    res.json(user)
+    const returnUser = {
+      name: user.name,
+      username: user.username,
+      readings: user.readings.map(reading => ({
+        blogId: reading.blog.id,
+        url: reading.blog.url,
+        title: reading.blog.title,
+        author: reading.blog.author,
+        likes: reading.blog.likes,
+        year: reading.blog.year,
+        readingList: {
+          read: reading.read,
+          id: reading.id
+        }
+        
+      }))
+    }
+    res.json(returnUser)
   } else {
     return res.status(404).end()
   }
