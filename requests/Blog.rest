@@ -1,24 +1,25 @@
 ### POST
 POST http://localhost:3001/api/blogs
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6MSwiaWF0IjoxNjg5ODY0MTI2fQ.7A-MdZEYmQ7AFifc3wgXNb0pJNIElX6uCN6Z3gBwhqY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6MSwiaWF0IjoxNjkwMjEyNzEyfQ.DAWCtBNuEsGt-9TZ7-udVT0z8jPjh_Uy5EWAuWytCEg
 Content-Type: application/json
 
 {
-  "author": "Pete Degal",
-  "url": "https://overreacted.io/npm-audit-broken-by-design",
-  "title": "Title of the blog",
-  "year": 2001
+  "author": "John Doe",
+  "url": "https://jdsblog.com/nothinghere",
+  "title": "A blog about nothing",
+  "year": 2023
 }
 
 ### DELETE
-DELETE http://localhost:3001/api/blogs/7
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6MSwiaWF0IjoxNjg5ODY0MTI2fQ.7A-MdZEYmQ7AFifc3wgXNb0pJNIElX6uCN6Z3gBwhqY
+DELETE http://localhost:3001/api/blogs/14
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6MSwiaWF0IjoxNjkwMjEyNzEyfQ.DAWCtBNuEsGt-9TZ7-udVT0z8jPjh_Uy5EWAuWytCEg
 
 
 ### PUT
-PUT http://localhost:3001/api/blogs/3
+PUT http://localhost:3001/api/blogs/10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pa2VAbWlrZS5jb20iLCJpZCI6MSwiaWF0IjoxNjkwMjEyNzEyfQ.DAWCtBNuEsGt-9TZ7-udVT0z8jPjh_Uy5EWAuWytCEg
 Content-Type: application/json
 
 {
-  "likes": 15
+  "likes": 16
 }
